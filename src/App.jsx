@@ -3,7 +3,32 @@ import housesForSale from "./data/housesForSale";
 import HouseCard from "./components/housecard";
 
 export default function App() {
-  /* Challenge
+  
+  const houseCards = []
+
+  for(let i = 0; i<housesForSale.length;i++){
+    const houseData = housesForSale[i]
+    houseCards.push( <HouseCard houseData={houseData} key={houseData.id} index={i} array={housesForSale} />)
+  }
+
+  // const houseCards = housesForSale.map((houseData, index, array) => {
+  //   return <HouseCard houseData={houseData} key={houseData.id} index={index} array={array} />;
+  // });
+  
+  
+  return (
+    <div className="wrapper">
+      <header>
+        <img className="logo" src="images/logo.png" />
+      </header>
+      <div className="house-cards-container">{houseCards}</div>
+    </div>
+  );
+}
+
+
+
+/* Challenge
   
       Aşağıdaki map metodu tarafından oluşturulan houseCard'ların JSX'inin ayrı bir fonksiyonel bileşene yerleştirilmesi gerekiyor. Göreviniz bunu aşağıdaki gibi yapmaktır:
       
@@ -19,20 +44,3 @@ export default function App() {
          
       Bonus Challenge: Sırasız listedeki liste öğelerini manuel olarak (şu anda oluşturuldukları gibi) değil, yinelemeli olarak (yani, bir tür yinelemeli yöntem/yaklaşım kullanarak) oluşturun.
   */
-
-  
-
-  const houseCards = housesForSale.map((houseData, index, array) => {
-    return <HouseCard houseData={houseData} key={houseData.id} index={index} array={array} />;
-  });
-  
-
-  return (
-    <div className="wrapper">
-      <header>
-        <img className="logo" src="images/logo.png" />
-      </header>
-      <div className="house-cards-container">{houseCards}</div>
-    </div>
-  );
-}
